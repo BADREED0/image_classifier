@@ -1,0 +1,8 @@
+<!-- classifier/templates/classifier/upload.html -->
+
+<h2>Upload an image for classification</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="image" required>
+    <button type="submit">Classify</button>
+</form>
