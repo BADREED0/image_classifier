@@ -1,3 +1,210 @@
-.title { 
-    color: rgb(128, 0, 124);
+/* Base page html --------------------------------------------------*/
+
+/* General layout */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 10px 0;
+}
+
+.sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    color: #ff5722;
+}
+
+/* Main content styling */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+
+
+
+
+/* Upload page html -------------------------------------------------*/
+
+
+/* Center the entire content */
+body {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; */
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    margin: 0;  
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Title styling */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styling for image container */
+.image-container {
+    width: 300px;
+    height: 300px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 20px auto;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Styling for the form elements */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* File input styling */
+#image-input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    background-color: #fafafa;
+    font-size: 14px;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+/* Result page style --------------------------------------------*/
+
+
+/* Styling for the title */
+.result-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Styling for the prediction text */
+.prediction-text {
+    font-size: 20px;
+    color: #333; /* Dark gray for readability */
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 15px;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 4px;
+    font-style: italic;
+    max-width: 80%;
+    border-left: 6px solid #4caf50; /* Adds a subtle color accent */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+}
+
+.prediction-text span {
+    color: green;
+    text-transform: capitalize;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Optional hover effect for a softer interactivity */
+.prediction-text:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Styling for the displayed image */
+.result-image {
+    display: block;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #fafafa;
+}
+
+/* Styling for the 'classify another image' link */
+.return-link {
+    display: inline-block;
+    /* margin-top: 20px; */
+    margin: 20px auto;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.return-link:hover {
+    background-color: #0056b3;
 }

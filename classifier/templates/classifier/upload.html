@@ -1,11 +1,46 @@
-<!-- classifier/templates/classifier/upload.html -->
+
+{% extends "classifier/base.html" %}
+
+{% block title %}Upload Image{% endblock %}
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'classifier/css/style.css' %}">
 
-<h2 class="title">Upload an image for classification</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <input type="file" name="image" required>
-    <button type="submit">Classify</button>
-</form>
+
+{% block content %}
+    <div class="upload-container">
+        <h2 class="title">Upload an image for classification</h2>
+
+        <div class="image-container">
+            <!-- Set the src to the default image initially -->
+            <img id="image-preview" src="{% static 'classifier/images/default.jpg' %}" alt="Image preview" style="max-width: 100%; height: auto;"/>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" id="image-input" accept="image/*" required>
+            <button type="submit">Classify</button>
+        </form>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+<script>
+    // JavaScript to display the selected image preview
+    document.getElementById('image-input').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const preview = document.getElementById('image-preview');
+        console.log('hello')
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;  // Update src with the selected image
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+{% endblock %}
+
+

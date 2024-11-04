@@ -1,6 +1,16 @@
-<!-- classifier/templates/classifier/result.html -->
+{% extends "classifier/base.html" %}
 
-<h2>Résultat de la Classification</h2>
-<p>Prédiction : {{ prediction }}</p>
-<img src="/{{ image_path }}" alt="Uploaded Image" style="max-width: 300px;">
-<a href="{% url 'home' %}">Classifier une autre image</a>
+{% block title %}Upload Image{% endblock %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'classifier/css/style.css' %}">
+
+
+{% block content %}
+    <div>
+        <h2 class="result-title">Résultat de la Classification</h2>
+        <p class="prediction-text">Prédiction : <span class="prediction-text-span">{{ prediction }}</span></p>
+        <img src="/{{ image_path }}" alt="Uploaded Image" class="result-image">
+        <a href="{% url 'home' %}" class="return-link">Classifier une autre image</a>
+    </div>
+{% endblock %}
