@@ -1,3 +1,5 @@
+# classifier/admin.py
 from django.contrib import admin
+from .models import ClassificationHistory
 
-# Register your models here.
+admin.site.register(ClassificationHistory)

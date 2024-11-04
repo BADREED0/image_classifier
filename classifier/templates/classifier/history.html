@@ -1,0 +1,29 @@
+{% extends "classifier/base.html" %}
+
+
+{% block content %}
+<h2 class="title">Classification History</h2>
+<table class="history-table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Prediction</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in history %}
+            <tr>
+                <td><img src="{{ item.image.url }}" alt="Classified Image" class="history-image"></td>
+                <td>{{ item.prediction }}</td>
+                <td>{{ item.timestamp }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="3">No classification history available.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
