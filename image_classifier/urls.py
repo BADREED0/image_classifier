@@ -31,7 +31,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('classifier/', include('classifier.urls')),
+    path('', include('classifier.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 # Configurer l'accès aux fichiers media
