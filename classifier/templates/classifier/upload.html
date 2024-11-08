@@ -1,4 +1,3 @@
-
 {% extends "classifier/base.html" %}
 
 {% block title %}Upload Image{% endblock %}
@@ -6,14 +5,13 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'classifier/css/style.css' %}">
 
-
 {% block content %}
     <div class="upload-container">
         <h2 class="title">Upload an image for classification</h2>
 
         <div class="image-container">
             <!-- Set the src to the default image initially -->
-            <img id="image-preview" src="{% static 'classifier/images/default.jpg' %}" alt="Image preview" style="max-width: 100%; height: auto;"/>
+            <img id="image-preview" src="{% static 'classifier/images/default.jpg' %}" alt="Image preview" style="max-width: 100%; height: auto; cursor: pointer;"/>
         </div>
 
         <form method="post" enctype="multipart/form-data">
@@ -24,14 +22,12 @@
     </div>
 {% endblock %}
 
-
 {% block scripts %}
 <script>
     // JavaScript to display the selected image preview
     document.getElementById('image-input').addEventListener('change', function(event) {
         const file = event.target.files[0];
         const preview = document.getElementById('image-preview');
-        console.log('hello')
         if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
@@ -40,7 +36,13 @@
             reader.readAsDataURL(file);
         }
     });
+
+    // Trigger file input click when clicking on the image
+    document.getElementById('image-preview').addEventListener('click', function() {
+        document.getElementById('image-input').click();
+    });
 </script>
 {% endblock %}
+
 
 

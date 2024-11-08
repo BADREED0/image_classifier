@@ -9,7 +9,8 @@
 {% block content %}
     <div>
         <h2 class="result-title">Résultat de la Classification</h2>
-        <p class="prediction-text">Prédiction : <span class="prediction-text-span">{{ prediction }}</span></p>
+        <p class="prediction-text">Prédiction : <span class="prediction-text-span">{{ result }}</span></p>
+        <p class="prediction-text">Confiance : <span class="confidence-text-span">{{ confidence }}</span></p>
         <img src="/{{ image_path }}" alt="Uploaded Image" class="result-image">
         <a href="{% url 'home' %}" class="return-link">Classifier une autre image</a>
     </div>
