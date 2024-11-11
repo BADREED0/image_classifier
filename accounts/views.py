@@ -2,7 +2,6 @@ from django.shortcuts import render,redirect
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
-from .models import *
 
 # Create your views here.
 def register(request):
@@ -73,19 +72,3 @@ def change_password(request):
   return render(request,'change-pass.html',{'form':form})
 
 
-
-def user_profile(request,pk):
-  profile = Profile.objects.get(id=pk)
-  if request.POST:
-    form = ProfileForm(request.POST,request.FILES,instance=profile)
-    if form.errors:
-      messages.warning(request,f'{form.errors}')
-    if form.is_valid():
-      new = form.save(commit=False)
-      new.user = request.user
-      new.save()
-      messages.success(request,'Profile Updated  Successfully..!')
-      return redirect('profile', profile.id)
-  else:
-    form = ProfileForm(instance=profile)
-  return render(request,'profile.html',{'form':form,'profile':profile})

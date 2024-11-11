@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Image Classifier{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'classifier/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>Image Classifier</h2>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Classifier Image</a></li>
+                    <li><a href="{% url 'classification_history' %}">Historique</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
